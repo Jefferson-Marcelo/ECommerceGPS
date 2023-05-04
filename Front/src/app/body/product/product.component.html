@@ -1,0 +1,27 @@
+<!--
+<p>
+  <mat-icon [matBadge]="products.length" matBadgeColor="primary"></mat-icon>
+</p>
+-->
+
+<div fxLayout="row wrap" fxLayout.lt-md="column">
+  <mat-card fxLayout="column" fxLayoutAlign="space-around center" fxFlex="20" *ngFor="let product of products" class="card-usuario">
+      <mat-card-title>
+        <img src="{{product.imagem}}" class="imagemCards">
+      </mat-card-title>
+    <mat-card-content>
+     <p> {{product.nome}}</p>
+     <p> {{product.valor | cifrao}} ou </p>
+     <p> <span>{{product.parcelado}}</span> {{product.parcelado | parcela : product.valor }} </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-icon-button (click)="removerProduct(product)" class="botao">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button mat-icon-button [routerLink]="['/cadastrarproduto', product.id]" class="botao">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </mat-card-actions>
+
+  </mat-card>
+</div>

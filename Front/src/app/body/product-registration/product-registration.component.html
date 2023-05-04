@@ -1,0 +1,41 @@
+<app-show-header></app-show-header>
+
+<div fxLayout="column" fxLayoutAlign="space-around center" class="formRegister">
+
+  <h1 *ngIf="inserindo">Cadastre a sua camisa</h1>
+  <h1 *ngIf="!inserindo">Edite a sua camisa</h1>
+
+  <mat-form-field  >
+    <mat-label>Nome</mat-label>
+    <input matInput [(ngModel)]="productAtual.nome" >
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" floatLabel="always">
+    <mat-label>Valor</mat-label>
+    <input matInput type="number" class="example-right-align" [(ngModel)]="productAtual.valor" placeholder="0">
+    <span matTextPrefix>$&nbsp;</span>
+    <span matTextSuffix>.00</span>
+  </mat-form-field>
+
+  <mat-form-field >
+    <mat-label>Quantas parcelas</mat-label>
+     <input matInput [(ngModel)]="productAtual.parcelado">
+    </mat-form-field>
+
+  <mat-form-field >
+    <input matInput [(ngModel)]="productAtual.imagem" placeholder="Link da imagem">
+  </mat-form-field>
+
+
+<button mat-raised-button mat-icon-button color="primary" (click)="inserirOuAtualizarProduct()">
+
+  <mat-icon *ngIf="inserindo">
+    add
+  </mat-icon>
+  <mat-icon *ngIf="!inserindo">
+    edit
+  </mat-icon>
+</button><br>
+
+</div>
+-->

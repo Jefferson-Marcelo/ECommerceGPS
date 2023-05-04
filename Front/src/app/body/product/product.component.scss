@@ -1,0 +1,35 @@
+mat-card {
+  max-width: 400px;
+  margin: 0.5em;
+  font-size: 1.5em;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+body{
+  background-color: #FFFFFF;
+}
+
+span{
+  font-size: 50px;
+}
+
+mat-card-content{
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.imagemCards{
+  width: 100%;
+}
+
+mat-card-title{
+  margin: 5rem;
+}
+
+.botao{
+  margin: 1em;
+}
+
