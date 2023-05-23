@@ -1,16 +1,30 @@
 <router-outlet></router-outlet>
 
-<h1>Brasileirão</h1>
-<mat-list-item><a>Nordeste</a></mat-list-item>
-<mat-list-item><a>Rio de Janeiro</a></mat-list-item>
-<mat-list-item><a>São Paulo</a></mat-list-item>
-<mat-list-item><a>Sul</a></mat-list-item>
-<mat-list-item><a>Minas</a></mat-list-item> <br>
+<section id="sidebar" class="flex flex-col gap-y-3">
+    <mat-card class="p-2">
+        <mat-card-title><a>Brasileirao</a></mat-card-title>
 
-<h1>Filtrar por</h1><br>
-<h3>Cor</h3><br>
-<section fxLayout="column" fxLayoutAlign="space-around start">
-<mat-checkbox class="example-margin">Amarelo</mat-checkbox>
-<mat-checkbox class="example-margin">Azul</mat-checkbox>
-<mat-checkbox class="example-margin">Branco</mat-checkbox>
+        <mat-card-content>
+            <mat-list-item><a>Nordeste</a></mat-list-item>
+            <mat-list-item><a>Rio de Janeiro</a></mat-list-item>
+            <mat-list-item><a>São Paulo</a></mat-list-item>
+            <mat-list-item><a>Sul</a></mat-list-item>
+            <mat-list-item><a>Minas</a></mat-list-item>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card class="p-2">
+        <mat-card-title>Filtrar por</mat-card-title>
+
+        <mat-card-content class="flex flex-col items-center">
+            <p>Cor</p>
+            <section class="flex flex-col">
+                <mat-checkbox class="my-1">Amarelo</mat-checkbox>
+                <mat-checkbox class="my-1">Azul</mat-checkbox>
+                <mat-checkbox class="my-1">Branco</mat-checkbox>
+            </section>
+        </mat-card-content>
+    </mat-card>
 </section>
+
+
