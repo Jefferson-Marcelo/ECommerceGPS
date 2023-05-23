@@ -31,7 +31,17 @@
     <div class="flex max-w-xl bg-white shadow-lg rounded-lg overflow-hidden">
       <div class="w-2/4 bg-cover" style="background-image: url({{product.imagem}})">
       </div>
-      <div class="w-full p-4">
+      <div class="w-full p-4 relative">
+        <div class="absolute right-0 top-0">
+          <div class="flex gap-x-2">
+            <button mat-icon-button [routerLink]="['/cadastrarproduto', product.id]" class="botao">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="removerProduct(product)" class="botao">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
         <h1 class="text-gray-900 font-bold text-2xl">{{product.nome}}</h1>
         <p class="mt-2 text-gray-600 text-md">Os melhores produtos na melhor loja do mercado! Venha já conhecer essa qualidade impressionante e com um preço mínimo.</p>
         <div class="flex item-center mt-2">
@@ -53,7 +63,7 @@
         </div>
         <div class="flex item-center justify-between mt-3">
           <h1 class="text-gray-700 font-bold text-xl">{{ product.valor | cifrao }}</h1>
-          <button class="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded">Comprar</button>
+          <button class="px-3 py-2 bg-gray-800 text-white text-sm font-bold uppercase rounded">Comprar</button>
         </div>
       </div>
     </div>
