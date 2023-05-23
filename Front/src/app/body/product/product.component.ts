@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import {Product} from "../../shared/model/product";
-import {ProductService} from "../../shared/services/product.service";
 import {Router} from "@angular/router";
+import { Product } from 'app/shared/model/product';
+import { ProductService } from 'app/shared/services/product.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -12,17 +13,14 @@ import {Router} from "@angular/router";
 })
 export class ProductComponent implements OnInit {
 
-  products: Product[];
-
+  products: Observable<Product[]>;
 
   constructor(private roteador: Router, private productService: ProductService) {
-    this.products = new Array<Product>()
+    this.products = this.productService.listar();
   }
 
   ngOnInit(): void {
-    this.productService.listar().subscribe(
-      products => this.products = products
-    );
+
   }
 
   editarProduct(product: Product): void{
@@ -31,17 +29,7 @@ export class ProductComponent implements OnInit {
 
 
   removerProduct(productARemover: Product): void {
-    this.productService.excluirProduct(productARemover.id).subscribe(
-      removido => {
-        console.log(removido);
-        const indxUsuario = this.products.findIndex(p => p.id === productARemover.id);
-
-        if (indxUsuario > -1) {
-          this.products.splice(indxUsuario, 1);
-        }
-
-      }
-    );
+    this.productService.excluirProduct(productARemover.id);
   }
 
 }

@@ -8,10 +8,11 @@ import {HttpClientModule} from '@angular/common/http';
 import {HeaderModule} from "./header/header.module";
 import {MatIconModule} from "@angular/material/icon";
 import {BodyModule} from "./body/body.module";
-import {FirestoreModule} from "./firestore/firestore.module";
 import { UserComponent } from './user/user.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
-
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'environments/environment';
+import {MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [AppComponent, UserComponent],
@@ -25,8 +26,9 @@ import {MatFormFieldModule} from "@angular/material/form-field";
     MatIconModule,
     BodyModule,
     AppRoutingModule,
-    FirestoreModule,
+    AngularFireModule.initializeApp(environment.firebase),
     MatFormFieldModule,
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

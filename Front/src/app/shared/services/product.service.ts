@@ -2,36 +2,41 @@ import { Injectable } from '@angular/core';
 import {PRODUCTS} from "../model/PRODUCTS";
 import {Product} from "../model/product";
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {Observable, map} from "rxjs";
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
+import { AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  URL_PRODUCTS = 'http://localhost:8080'
+  private itemsRef: AngularFireList<Product>;
+  items$: Observable<Product[]>;
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private db: AngularFireDatabase) {
+    this.itemsRef = this.db.list<Product>('products');
+    this.items$ = this.itemsRef.valueChanges();
   }
 
-  listar():Observable<Product[]>{
-    return this.httpClient.get<Product[]>(`${this.URL_PRODUCTS}/listarproduto`);
+  listar(): Observable<Product[]> {
+    return this.items$;
   }
 
-  inserirProduct(product: Product): Observable<Product>{
-    return this.httpClient.post<Product>(`${this.URL_PRODUCTS}/cadastrarproduto`, product);
+  inserirProduct(product: Product): void {
+    this.itemsRef.push(product);
   }
 
-  excluirProduct(id: string): Observable<object>{
-    return this.httpClient.delete(`${this.URL_PRODUCTS}/${id}`)
+  excluirProduct(id: string): void{
+    this.itemsRef.remove(id)
   }
 
-  pesquisarPorId(id: number): Observable<Product> {
-    return this.httpClient.get<Product>(`${this.URL_PRODUCTS}/listarproduto/${id}`);
-  }
+  // pesquisarPorId(id: number): Observable<Product> {
+  //   return this.httpClient.get<Product>(`${this.URL_PRODUCTS}/listarproduto/${id}`);
+  // }
 
-  atualizar(product: Product): Observable<Product> {
-    return this.httpClient.put<Product>(`${this.URL_PRODUCTS}/cadastrarproduto/${product.id}`, product);
+  atualizar(id: string, product: Product): Promise<void> {
+    return this.itemsRef.update(id, product);
   }
 
 }

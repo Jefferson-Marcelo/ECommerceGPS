@@ -5,7 +5,7 @@
 -->
 
 <div fxLayout="row wrap" fxLayout.lt-md="column">
-  <mat-card fxLayout="column" fxLayoutAlign="space-around center" fxFlex="20" *ngFor="let product of products" class="card-usuario">
+  <mat-card fxLayout="column" fxLayoutAlign="space-around center" fxFlex="20" *ngFor="let product of products | async" class="card-usuario">
       <mat-card-title>
         <img src="{{product.imagem}}" class="imagemCards">
       </mat-card-title>
