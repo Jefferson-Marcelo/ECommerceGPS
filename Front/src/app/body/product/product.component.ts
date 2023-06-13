@@ -32,4 +32,11 @@ export class ProductComponent implements OnInit {
     this.productService.excluirProduct(productARemover.id);
   }
 
+  adicionarAoCarrinho(product: Product): void {
+    this.productService.adicionarAoCarrinho(product)
+  }
+
+  estaNoCarrinho(product: Product) {
+    return this.productService.estaNoCarrinho(product);
+  }
 }

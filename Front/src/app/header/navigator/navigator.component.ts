@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ProductService} from "../../shared/services/product.service";
 
 @Component({
   selector: 'app-navigator',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigatorComponent implements OnInit {
 
-  constructor() { }
+  private productService: ProductService
+
+  constructor(productService: ProductService) {
+    this.productService = productService
+  }
 
   ngOnInit(): void {
   }
 
+  getTamanhoCarrinho() {
+    return this.productService.getTamanhoCarrinho()
+  }
 }

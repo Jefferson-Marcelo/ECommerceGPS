@@ -20,6 +20,7 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 // import {BreadcrumbModule} from "angular-crumbs";
 import {BrowserModule} from "@angular/platform-browser";
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import { CarrinhoComponent } from './carrinho/carrinho.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
         ProductRegistrationComponent,
         SidebarComponent,
         ShowBodyComponent,
+        CarrinhoComponent,
 
     ],
   exports: [
@@ -38,22 +40,22 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     ProductRegistrationComponent,
     ShowBodyComponent
   ],
-  imports: [
-      CommonModule,
-      HeaderModule,
-      MatCardModule,
-      MatIconModule,
-      AppRoutingModule,
-      PipesModule,
-      MatBadgeModule,
-      MatFormFieldModule,
-      FormsModule,
-      FlexModule,
-      MatInputModule,
-      MatListModule,
-      MatSidenavModule,
-      BrowserModule,
-      MatCheckboxModule,
-  ]
+    imports: [
+        CommonModule,
+        HeaderModule,
+        MatCardModule,
+        MatIconModule,
+        AppRoutingModule,
+        PipesModule,
+        MatBadgeModule,
+        MatFormFieldModule,
+        FormsModule,
+        FlexModule,
+        MatInputModule,
+        MatListModule,
+        MatSidenavModule,
+        BrowserModule,
+        MatCheckboxModule,
+    ]
 })
 export class BodyModule { }
