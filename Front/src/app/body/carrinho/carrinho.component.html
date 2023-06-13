@@ -1,0 +1,52 @@
+<app-show-header></app-show-header>
+
+<div fxLayout="row wrap" fxLayout.lt-md="column" class="mx-3 gap-x-4">
+    <div class="py-6" *ngFor="let product of carrinho">
+        <div class="flex max-w-xl bg-white shadow-lg rounded-lg overflow-hidden">
+            <div class="w-2/4 bg-cover" style="background-image: url({{product.imagem}})">
+            </div>
+            <div class="w-full p-4 relative">
+                <div class="absolute right-0 top-0">
+                    <div class="flex gap-x-2">
+                        <!--            <button mat-icon-button [routerLink]="'/cadastrarproduto/'+product.id" class="botao">-->
+                        <!--              <mat-icon>edit</mat-icon>-->
+                        <!--            </button>-->
+                    </div>
+                </div>
+                <h1 class="text-gray-900 font-bold text-2xl">{{product.nome}}</h1>
+                <p class="mt-2 text-gray-600 text-md">Os melhores produtos na melhor loja do mercado! Venha já conhecer essa qualidade impressionante e com um preço mínimo.</p>
+                <div class="flex item-center mt-2">
+                    <svg class="w-5 h-5 fill-current text-gray-700" viewBox="0 0 24 24">
+                        <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/>
+                    </svg>
+                    <svg class="w-5 h-5 fill-current text-gray-700" viewBox="0 0 24 24">
+                        <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/>
+                    </svg>
+                    <svg class="w-5 h-5 fill-current text-gray-700" viewBox="0 0 24 24">
+                        <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/>
+                    </svg>
+                    <svg class="w-5 h-5 fill-current text-gray-700" viewBox="0 0 24 24">
+                        <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/>
+                    </svg>
+                    <svg class="w-5 h-5 fill-current text-gray-700" viewBox="0 0 24 24">
+                        <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/>
+                    </svg>
+                </div>
+                <div class="flex item-center justify-between mt-3">
+                    <h1 class="text-gray-700 font-bold text-xl">R${{ product.valor }}.00</h1>
+                </div>
+                <button mat-icon-button (click)="removerProduct(product.id)" class="px-3 py-2 bg-gray-800 text-white text-sm font-bold uppercase rounded bg-danger">
+                    REMOVER
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <h1 class="text-center" *ngIf="!carrinhoVazio()">
+        Valor total: R${{getValorTotal()}}.00 <br>
+        <button class="px-4 py-3 bg-gray-800 text-white font-bold uppercase rounded bg-success">Finalizar Compra</button>
+    </h1>
+
+</div>

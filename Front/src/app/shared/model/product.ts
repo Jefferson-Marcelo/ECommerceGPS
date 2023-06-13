@@ -1,16 +1,16 @@
 export class Product{
-  "id": string;
-  "imagem": string;
-  "nome": string;
-  "valor": number;
-  "parcelado": number;
+  "id"?: string;
+  "imagem"?: string;
+  "nome"?: string;
+  "valor"?: number;
+  "parcelado"?: number;
 
-  constructor(id: string, imagem: string, nome:string, valor: number, parcelado: number) {
+  constructor(data : any, id?: string) {
     this.id = id;
-    this.imagem = imagem;
-    this.nome = nome;
-    this.valor = valor
-    this.parcelado = parcelado
+    this.imagem = data.imagem;
+    this.nome = data.nome;
+    this.valor = data.valor;
+    this.parcelado = data.parcelado;
   }
 
 }

@@ -34,7 +34,10 @@
       <div class="w-full p-4 relative">
         <div class="absolute right-0 top-0">
           <div class="flex gap-x-2">
-            <button mat-icon-button [routerLink]="['/cadastrarproduto', product.id]" class="botao">
+<!--            <button mat-icon-button [routerLink]="'/cadastrarproduto/'+product.id" class="botao">-->
+<!--              <mat-icon>edit</mat-icon>-->
+<!--            </button>-->
+            <button mat-icon-button (click)="editarProduct(product)" class="botao">
               <mat-icon>edit</mat-icon>
             </button>
             <button mat-icon-button (click)="removerProduct(product)" class="botao">
@@ -62,8 +65,11 @@
           </svg>
         </div>
         <div class="flex item-center justify-between mt-3">
-          <h1 class="text-gray-700 font-bold text-xl">{{ product.valor | cifrao }}</h1>
-          <button class="px-3 py-2 bg-gray-800 text-white text-sm font-bold uppercase rounded">Comprar</button>
+          <h1 class="text-gray-700 font-bold text-xl">R${{ product.valor }}.00</h1>
+          <button [ngClass]="{'bg-success': estaNoCarrinho(product)}"
+                  class="px-3 py-2 bg-gray-800 text-white text-sm font-bold uppercase rounded ml-3"
+                  (click)="adicionarAoCarrinho(product)"
+          >Adicionar ao Carrinho</button>
         </div>
       </div>
     </div>

@@ -4,6 +4,7 @@ import {ProductRegistrationComponent} from "./body/product-registration/product-
 import {ProductComponent} from "./body/product/product.component";
 import {ShowBodyComponent} from "./body/show-body/show-body.component";
 import {UserComponent} from "./user/user.component";
+import {CarrinhoComponent} from "./body/carrinho/carrinho.component";
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
   {
     path: 'usuario',
     component: UserComponent
+  },
+  {
+    path: 'carrinho',
+    component: CarrinhoComponent
   }
 
 ];
